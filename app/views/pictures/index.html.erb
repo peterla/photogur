@@ -8,6 +8,15 @@
   <% end %>
 </ul>
 
+<h1>Older than One Month</h1>
+<ul>
+  <% @older_than_one_month_pictures.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
+<p>
+Total: <%= Picture.created_before(1.month.ago).count %>
+
 <% @pictures.each do |picture| %>
   <p><%= picture.title %>, <%= picture.artist %></p>
   <%= link_to image_tag(picture.url), "/pictures/#{picture.id}" %>
